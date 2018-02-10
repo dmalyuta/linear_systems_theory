@@ -1,0 +1,8 @@
+/**/*.project
+/**/*.texlipse
+/**/*.sync*
+/**/tmp/
+/**/*.aux
+/**/*.log
+/**/*.out
+/**/*.pdf

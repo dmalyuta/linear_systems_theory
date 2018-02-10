@@ -1,0 +1,221 @@
+\nextchapter{Introduction to Algebra}
+
+\begin{Definition}
+\textbf{Group} $(G,*)$:
+\begin{enumerate*}[label=\protect\circled{\arabic*}]
+  \item[\circled{0}] $*$ closed
+  \item $*$ assoc: $a*(b*c)=(a*b)*c$
+  \item $\exists$ iden $e\in G, a*e=e*a=a$
+  \item $\exists a^{-1}\in G, a*a^{-1}=a^{-1}*a=e$
+  \item[(4.)] \textbf{Abelian}: $*$ commutative: $a*b=b*a$
+\end{enumerate*}
+\end{Definition}
+
+\begin{Definition}
+\textbf{Ring.}
+$(R,+,\cdot)$, bin ops $+:R\times R\to R$ (\textbf{closed} addition), $\cdot:R\times R\to R$ (\textbf{closed} multiplic.) s.t. 
+\begin{enumerate}[leftmargin=4mm]
+  \item Addition satisfies:
+  \begin{itemize*}
+    \item Assoc: $a+(b+c)=(a+b)+c$.
+    \item Commut: $a+b=b+a$
+    \item $\exists$ iden $0\in R$, $a+0=a$.
+    \item $\exists$ inv: $(-a)\in R$, $a+(-a)=(-a)+a=0$.
+  \end{itemize*}
+  \item Multiplication satisf:
+  \begin{itemize*}
+    \item Assoc: $\forall a,b,c\in R, a\cdot(b\cdot c)=(a\cdot b)\cdot c$.
+    \item $\exists$ iden $\exists 1\in R,\forall a\in R,1\cdot a=a\cdot 1=a$.
+  \end{itemize*}
+  \item Multip. distributive wrt add.: $\forall a,b,c\in R,a\cdot(b+c)=a\cdot b+a\cdot c$ and $(b+c)\cdot a=b\cdot a+c\cdot a$.
+  \item[(4)] \textbf{Commutative ring} if $\forall a,b\in R, a\cdot b=b\cdot a$
+\end{enumerate}
+\end{Definition}
+
+\begin{Fact}
+$(R,+,\cdot)$ ring:
+\begin{enumerate*}
+  \item $a\cdot 0=0\cdot a=0$
+  \item $(-a)\cdot b=a\cdot(-b)=-(a\cdot b)$
+\end{enumerate*}
+\end{Fact}
+\begin{Definition}
+$\Reals[s]\hspace{-1mm}:\sum_{0}^n a_i s^i$;
+$\Reals(s):\sum_{0}^m a_i s^i/\sum_{0}^n b_i s^i$;
+$\Reals_p(s):\sum_{0}^n a_i s^i/\sum_{0}^n b_i s^i$
+\end{Definition}
+\begin{Definition}
+\textbf{Field} $(F,+,\cdot)$ commut ring \& $\forall a\in F\setminus0, \exists a^{-1}\in F,a\cdot a^{-1}=1$
+\end{Definition}
+\begin{Definition}
+\textbf{\hl{Linear space (LS)}} $(V,F,\oplus,\odot)$: set $V$ of \textbf{vectors}, field $(F,+,\cdot)$ of \textbf{scalars}, w/ bin ops $\oplus:V\times V\to V$ and $\odot:F\times V\to V$ s.t.
+\begin{enumerate}[leftmargin=4mm]
+  \item $\oplus$ satisfies:
+  \begin{itemize*}
+    \item Assoc: $x\oplus(y\oplus z)=(x\oplus y)\oplus z$.
+    \item Commut: $x\oplus y=y\oplus x$.
+    \item $\exists$ iden $\theta\in V$ s.t. $x\oplus\theta=x$.
+    \item $\exists$ inverse: $\forall x\in V,\exists(\ominus x)\in V, x\oplus(\ominus x)=\theta$.
+  \end{itemize*}
+  \item $\odot$ satisfies:
+  \begin{itemize*}
+    \item Assoc: $a\odot(b\odot x)=(a\cdot b)\odot x$
+    \item Mult by iden $1\in F$ leaves elems unchanged: $\forall x\in V,1\odot x=x$.
+  \end{itemize*}
+  \item $\odot$ distribut. wrt $\oplus$: $\forall a,b\in F,\forall x,y\in V,(a+b)\odot x=(a\odot x)\oplus(b\odot x)$ and $a\odot(x\oplus y)=(a\odot x)\oplus(a\odot y)$.
+\end{enumerate}
+\end{Definition}
+\begin{Fact}
+$(V,F,\oplus,\odot)$ LS:
+\begin{enumerate*}
+  \item $0\odot x=\theta$
+  \item $(-a)\odot x=\ominus(a\odot x)=a\odot(\ominus x)$
+\end{enumerate*}
+\end{Fact}
+\begin{Definition}
+\textbf{Product space} $(V\times W,F,\oplus,\odot)$ is LS of pairs $(v,w)\in V\times W$ with $(v_1,w_1)\oplus(v_2,w_2)=(v_1\oplus_V v_2,w_1\oplus_W w_2)$ and $a\odot(v,w)=(a\odot_V v,a\odot_W w)$.
+\end{Definition}
+\textbf{Def}: $C^k([t_0,t_1],\mathbb R^n)$ LS of $k$-times diffbl funcs $f:[t_0,t_1]\to\mathbb R^n$
+
+\begin{Definition}
+\textbf{\hl{Linear subspace (LSS)}} $(W\subseteq V,F)$ of $V\Leftrightarrow$ itself LS, i.e. $\theta_V\in W$ and $\forall w_1,w_2\in W,\forall a_1,a_2\in F$, we have $a_1 w_1+a_2 w_2\in W$.
+\end{Definition}
+$\{(W_i,F)\}_{i=1}^n$ LSS's of $(V,F)$:
+\begin{itemize*}
+  \item $\bigcap_{i=1}^n (W_i,F)$ always LSS
+  \item $\bigcup_{i=1}^n (W_i,F)$ LSS only if $W_i$ embedded ($\exists W_k$ encompassing all)
+\end{itemize*}
+
+\begin{Definition}
+LSS of $(V,F)$ gen. by $S$: $\textsc{Span}(S)=\left\{ \sum_{i=1}^n{a_iv_i}|a_i\in F, v_i\in S \right\}$.
+\end{Definition}
+\begin{Definition}
+$\{v_i\}_{i=1}^n$ \textbf{\hl{lin indep}} $\Leftrightarrow$ ($\sum_{i=1}^n{a_i v_i}=0\Leftrightarrow a_i=0, \forall i=1,\ldots,n$).
+\end{Definition}
+\begin{Definition}
+Set $S\subseteq V$ is \textbf{\hl{basis}} of $(V,F)$ $\Leftrightarrow$ it is lin. indep. and $\textsc{Span}(S)=V$.
+\end{Definition}
+\begin{Fact}
+All bases have same \# of elements $=\text{dim}(V)$ (\textbf{dimension} of $V$).
+\end{Fact}
+\begin{Definition}
+\textbf{Representation} $\xi=(\xi_1,\xi_2,\ldots,\xi_n)\in F^n$ of $x\in V$ wrt basis $\basis{b}{i}{n}$ such that $x=\sum_{i=1}^n {\xi_i b_i}$, \textbf{unique} wrt a basis!
+\end{Definition}
+\begin{Definition}
+$\linA:U\to V$ \textbf{linear} $\Leftrightarrow\linA(a_1u_1+a_2u_2)=a_1\linA(u_1)+a_2\linA(u_2)$.
+\end{Definition}
+\begin{Definition}
+$\linA:U\to V$ \begin{itemize*} \item \textbf{null space} $\textsc{Null}(\linA)=\{u\in U|\linA(u)=\theta_V\}\subseteq U$
+\item \textbf{range space} $\textsc{Range}(\linA)=\{v\in V|\exists u\in U:v=A(u)\}\subseteq V$
+\end{itemize*}
+\end{Definition}
+\begin{Theorem}
+$\linA:U\to V$ \textbf{surjectv} $\Leftrightarrow\textsc{Range}(\linA)=V$; \textbf{injectv} $\Leftrightarrow\textsc{Null}(\linA)=\theta_U$
+\end{Theorem}
+\begin{Definition}
+\textbf{Eigenvalue} $\lambda\in F$ of $\linA:V\to V\Leftrightarrow\exists v\in V\text{ s.t. }v\ne\theta_V\wedge A(v)=\lambda\cdot v$. Then $v$ called \textbf{eigenvector} of $\linA$ for the eigenvalue $\lambda$.
+\end{Definition}
+\begin{Fact}
+The set of eigenvectors $\{v\in V|\linA(v)=\lambda v\}$ is a subspace of $V$.
+\end{Fact}
+\begin{Theorem}
+Given field $F$, every matrix $A\in F^{m\times n}$ defines a linear map $\linA:(F^n,F)\to(F^m,F)$ by matrix multiplication.
+\end{Theorem}
+\begin{Definition}
+$\linA(x)=Ax$: $\Rank(A):=\DIM\Range(\linA)$, $\Nullity(A):=\DIM\Null(\linA)$
+\end{Definition}
+\begin{Theorem}
+$A\in F^{n\times m}$: \begin{itemize*}
+\item $\Rank(A)+\Nullity(A)=m$
+\end{itemize*}
+\begin{itemize}[leftmargin=16.9mm]
+  \item $0\le\Rank(A)\le\min\{m,n\}$
+  \item If $P\in F^{m\times m}$ and $Q\in F^{n\times n}$ invertible, then:
+\begin{equation*}
+\hspace{-15mm}
+\begin{cases}
+\Rank(A)=\Rank(AP)=\Rank(QA)=\Rank(QAP) \\
+\Nullity(A)=\Nullity(AP)=\Nullity(QA)=\Nullity(QAP)
+\end{cases}
+\end{equation*}
+\end{itemize}
+\end{Theorem}
+\begin{Theorem}
+Let $A\in F^{n\times n}$ matrix rep of $\linA:F^n\to F^n$, $\linA(x)=Ax$. Equiv:
+\begin{enumerate*}
+  \item $A$ inv
+  \item $\linA$ bij
+  \item $\linA$ inj
+  \item $\linA$ surj
+  \item $\Rank(A)=n$
+  \item $\Nullity(A)=0$
+  \item $A$ cols are lin indep
+  \item $A$ rows are lin indep
+\end{enumerate*}
+\end{Theorem}
+\begin{Theorem}
+$A\in F^{n\times n}$:
+\begin{itemize*}
+  \item $\lambda\in\mathbb C$ eigval of $A$
+  \item $\Det(\lambda I-A)=0$
+  \item $v\in \mathbb C^n\setminus 0, Av=\lambda v$ \textbf{\hl{r eigvec}}
+  \item $\eta\in \mathbb C^n\setminus 0, \eta^TA=\lambda\eta^T$ \textbf{\hl{l eigvec}}
+\end{itemize*}
+\end{Theorem}
+\begin{Definition}
+\textbf{\hl{Spectrum}} $\Spec[A\in F^{n\times n}]=\{\lambda_1,\ldots,\lambda_n\}$; $A$ inv $\Leftrightarrow\lambda_i\ne 0\forall i$
+\end{Definition}
+\begin{Theorem}
+Any lin. map $\linA:F^n\to F^m$ between 2 finite-dim. spaces can be represented by a \textbf{unique} matrix $A\in F^{m\times n}$ (wrt fixed bases).
+\end{Theorem}
+Let $\linA:(U,F)\to(V,F),\basis{u}{j}{n}\to\basis{v}{i}{m}$ then:
+\vspace{-1mm}
+\begin{equation*}
+y_j=\linA(u_j)=\sum_{i=1}^m{a_{ij}v_i}
+\Rightarrow A:=\begin{bmatrix}
+a_{11}&\cdots&a_{1n}\\
+\vdots&\ddots&\vdots\\
+a_{m1}&\cdots&a_{mn}
+\end{bmatrix}\in F^{m\times n}
+\end{equation*}
+\begin{Fact}
+Let $x=\sum_{j=1}^n\xi_ju_j\in U$, rep of $x$ is $\xi=(\xi_1,\ldots,\xi_n)$. Then rep of $\linA(x)\in V$ is $\eta=A\xi$ s.t. $\linA(x)=\sum_{i=1}^m\eta_iv_i$, $\eta_i=\sum_{j=1}^n{a_{ij}\xi_j}$.
+\end{Fact}
+Let $\basis{u}{i}{n}$ basis of $(U,F)$ and $\linA:(U,F)\to(V,F)$. Repr. $A$ of $\linA$ wrt $\basis{u}{i}{n}$ is found col-by-col: \hl{$A_{\text{col,}(i)}=\linA(u_i)(=Au_i)$}.
+
+Easy to see with $\basis{e}{i}{n}$ the canonical $(0,\ldots,1,\ldots,0)$ basis.
+
+\begin{Theorem}
+Rep of compos $\linC=\linA\circ\linB$ is $C=A\cdot B$ (matrix mult).
+\end{Theorem}
+\begin{Theorem}
+$A$ representation of $\linA:V\to V$, then $A^{-1}$ is the rep of $\linA^{-1}$.
+\end{Theorem}
+\textbf{Change of Basis}.
+\vspace{-2mm}
+\begin{equation*}
+\begin{array}{ccc}
+(U,F) & \stackrel{\mathclap{\linA}}{\longrightarrow} & (V,F) \\
+\basis{u}{j}{n} & \stackrel{\mathclap{A\in F^{m\times n}}}{\longrightarrow} & \basis{v}{i}{m} \vspace{0mm}\\
+\begin{matrix}
+\text{\hspace{-15mm}\footnotesize$Q\in F^{n\times n}$} & \uparrow & \text{}
+\end{matrix} & & \begin{matrix}
+\text{} & \downarrow & \text{\footnotesize$P\in F^{m\times m}$\hspace{-15mm}}
+\end{matrix} \\
+\basis{\tilde u}{j}{n} & \stackrel{\mathclap{\tilde A\in F^{m\times n}}}{\longrightarrow} & \basis{\tilde v}{i}{m}
+\end{array}
+\end{equation*}
+\begin{equation*}
+\Rightarrow\tilde A=PAQ
+\end{equation*}
+Find $Q$? $Q\tilde u_j=[\tilde u_j]_{\basis{u}{j}{n}}=\alpha_1u_1+\cdots+\alpha_nu_n\Rightarrow Q_{\text{col}}^{(j)}=[\alpha_1\cdots\alpha_n]^T$. Same for $P$ \dSmiley.
+\begin{Fact}
+Change of basis matrices are \textbf{invertible}.
+\end{Fact}
+\begin{Definition}
+$A\in F^{m\times n}$ and $\tilde A\in F^{m\times n}$ are \textbf{equivalent}$\Leftrightarrow\exists Q\in F^{n\times n},P\in F^{m\times m}$ s.t. $\tilde A=PAQ$.
+\end{Definition}
+\begin{Theorem}
+2 matrices equivlnt$\Leftrightarrow$they are representations of same lin map
+\end{Theorem}
+When $\linA:U\to U$ then $\tilde A=Q^{-1}AQ$ \textbf{change of basis} formula.

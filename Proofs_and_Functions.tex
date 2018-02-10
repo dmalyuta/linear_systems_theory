@@ -1,0 +1,51 @@
+\nextchapter{Proofs and functions}
+
+\textbf{By sequence $p\then q$.} Establish $p\then p_1\then \ldots\then p_n\then q$.
+
+\textbf{By induction.} Prove $p_0$ true; assume $p_k$ true; deduce $p_{k+1}$ true.
+
+\textbf{By contraposition $p\then q$.} Prove that $\neg q\then \neg p$.
+
+\textbf{By contradiction $p\then q$.} Show that $p\then\neg q$ gives contradiction.
+
+\textbf{If and only if.} Must prove ($\then$) and ($\Leftarrow$).
+
+\textbf{Set equality}. Prove $A\subseteq B$ (e.g. $x\in A\Rightarrow x\in B$) \& $B\subseteq A$.
+
+\begin{Definition}
+$f:X\to Y$. $X$ dom, $Y$ codom, $\{y\in Y|\exists x\in X, f(x)=y\}$ range.
+\begin{enumerate*}[label=\protect\circled{\arabic*}]
+  \item \textbf{Injective} $\Leftrightarrow f(x_1)=f(x_2)\then x_1=x_2$.
+  \item \textbf{Surjective} $\Leftrightarrow \forall y\in Y\exists x\in X\text{, }y=f(x)$.
+  \item \textbf{Bijective} $\Leftrightarrow$ inj \& surj.
+\end{enumerate*}
+\end{Definition}
+
+\begin{Definition}
+\begin{enumerate*}[label=\protect\circled{\arabic*}]
+  \item $g_L:Y\to X$ left inv $\Leftrightarrow g_L\circ f=1_X$.
+  \item $g_R:Y\to X$ right inv $f$ $\Leftrightarrow f\circ g_R=1_Y$.
+  \item $g:Y\to X$ inv $\Leftrightarrow$ both left and right inv.
+\end{enumerate*}
+$f$ invertible if $\exists$ inverse of $f$; then inverse is unique and left$\equiv$right.
+\end{Definition}
+
+\begin{Theorem}
+\begin{enumerate*}[label=\protect\circled{\arabic*}]
+  \item $f$ has left inv $\Leftrightarrow$ injective.
+  \item $f$ has right inv $\Leftrightarrow$ surjective.
+  \item $f$ invertible $\Leftrightarrow$ bijective.
+  \item If $f$ invertible, inverse is unique!
+\end{enumerate*}
+\end{Theorem}
+
+\begin{Fact}
+\begin{flushleft}
+\textbf{Func. compos.}
+\begin{enumerate*}
+\item Associative
+\item Compos of injections $\Rightarrow$ injection; surj $\Rightarrow$ surj; bij $\Rightarrow$ bij
+\item $(f\circ g)^{-1}=(g^{-1}\circ f^{-1})$.
+\end{enumerate*}
+\end{flushleft}
+\end{Fact}

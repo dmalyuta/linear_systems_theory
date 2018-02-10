@@ -1,0 +1,104 @@
+\newcommand*{\QED}{\ensuremath{\blacksquare}}
+\newcommand{\union}{\cup}
+\newcommand{\intersection}{\cap}
+\newcommand{\overeq}[1]{\stackrel{\mathclap{\tiny{\substack{#1}}}}{=}}
+\newcommand{\overto}[1]{\stackrel{\mathclap{\tiny{\substack{#1}}}}{\to}}
+\newcommand{\Adj}{\textsc{Adj}}
+\newcommand{\linA}{\mathcal{A}}
+\newcommand{\linB}{\mathcal{B}}
+\newcommand{\linC}{\mathcal{C}}
+\newcommand{\inv}{^{-1}}
+\newcommand{\perpoplus}{\overset{\perp}{\oplus}}
+\newcommand{\e}[1]{e^{#1}}
+\newcommand{\inver}[1]{#1^{-1}}
+\newcommand{\fnorm}[2]{\|#1\|_{#2}}
+\newcommand{\Property}[1]{
+	\begin{properties}
+		\item[\textit{Property #1}.]
+	\end{properties}
+}
+\newcommand{\skewmat}[1]{\bm{#1}^{\times}}
+\newcommand{\proj}[2]{\text{proj}_{#1}(#2)}
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+\newcommand{\basis}[3]{\{#1_{#2}\}_{#2=1}^{#3}}
+\newcommand{\sequence}[3]{\{#1_{#2}\}_{#2=0}^{#3}}
+\newcommand{\Naturals}{\mathbb N}
+\newcommand{\Reals}{\mathbb R}
+\newcommand{\Complex}{\mathbb C}
+\newcommand{\argmin}{\operatornamewithlimits{argmin}}
+\newcommand{\argmax}{\operatornamewithlimits{argmax}}
+\newcommand{\then}{\Rightarrow}
+\newcommand{\Rank}{\textsc{Rank}}
+\newcommand{\Range}{\textsc{Range}}
+\newcommand{\Nullity}{\textsc{Nullity}}
+\newcommand{\Null}{\textsc{Null}}
+\newcommand{\Det}{\textsc{Det}}
+\newcommand{\Spec}{\textsc{Spec}}
+\newcommand{\DIM}{\text{dim}}
+\newcommand*\bigcdot{\mathpalette\bigcdot@{.5}}
+\newcommand{\InnerProd}[2]{\langle#1,#2\rangle}
+\newcommand{\scaleval}{0.8}
+\newcommand{\Expectation}[1]{\mathbb{E}\left[#1\right]}
+\newcommand{\Variance}[1]{\text{Var}[#1]}
+\newcommand{\Cov}[2]{\text{Cov}[#1,#2]}
+\newcommand{\Prob}{\mathbb P}
+\newcommand{\ord}[1]{^{\left(#1\right)}}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\newcommand{\mc}[2]{{\color{#1}#2}}
+
+%%%%%%%%%% Drawings
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=0pt,minimum size=0.1em] (char) {#1};}}
+
+\newcommand*\circledcolor[2]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=0pt,minimum size=0em,fill=#2] (char) {#1};}}
+
+\newcommand*\squaredcolor[2]{\tikz[baseline=(char.base)]{\node[shape=rectangle,draw,inner sep=0.5pt,minimum size=0.1em,fill=#2] (char) {#1};}}
+
+\newcommand*\squaredcolornobord[2]{\tikz[baseline=(char.base)]{\node[shape=rectangle,inner sep=0.5pt,minimum size=0.1em,fill=#2] (char) {#1};}}
+
+\newcommand\dangersign[1][1.5em]{%
+  \renewcommand\stacktype{L}%
+  \scaleto{\stackon[0.7pt]{\color{red}$\triangle$}{\tiny !}}{#1}%
+}
+
+%%%%%%%%%% Big commands
+\newcommand{\distribdiscript}[6]{
+\noindent\rule[0ex]{\linewidth}{0.5pt}
+\flushleft{\textbf{#1 ($X\sim #2$)}} % Name (#1) and notation (#2)
+\vspace{-2mm}
+\noindent\rule[1.5ex]{\linewidth}{0.5pt}
+#3 % Description of distribution
+\begin{tabularx}{1\columnwidth}{X|X}
+\hline
+#4 % PMF/PDF/CDF go here
+&
+Properties:
+#5 % Properties of distribution go here
+\\ \hline
+\end{tabularx}
+\myfigure{
+\includegraphics[width=0.9\columnwidth]{#6.pdf} % Filename of the distribution grpahic goes here
+}
+}
+
+\newcommand{\nextchapter}[1]{
+\begin{Chapter}
+	\addtocounter{section}{1}
+	\textbf{\thesection: #1}
+\end{Chapter}
+}
+
+\newcommand{\nextsubchapter}[1]{
+\begin{Subchapter}
+	\textbf{#1}
+\end{Subchapter}
+}
+
+\newcommand{\myfigure}[1]{
+\vspace{-4mm}
+\begin{figure}[H]
+\centering
+#1
+\end{figure}
+\vspace{-4mm}
+}

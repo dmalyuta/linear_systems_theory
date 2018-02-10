@@ -1,0 +1,191 @@
+\nextchapter{LTI systems: solutions and transfer functions}
+\vspace{-2mm}
+\begin{equation}\label{eq:LTI}
+\dot x(t)=Ax(t)+Bu(t)\quad
+y(t) = Cx(t)+Du(t)
+\end{equation}
+
+\begin{Definition}
+\textbf{\hl{Mat exp}}: $e^{At}=I+At+1/(2!)A^2t^2+\cdots=\sum_{k=0}^\infty 1/(k!)A^kt^k$
+\end{Definition}
+\begin{Theorem}
+$\forall t,t_0\in\Reals_+$, \hl{$\Phi(t,t_0)=e^{A(t-t_0)}$} (\textbf{for LTI, not LTV})!
+\end{Theorem}
+\begin{Corollary}
+{\color{red}\textbf{(***)}} Using above thm. and props of $\Phi$, we have \textbf{for LTI only}: 
+\begin{enumerate}
+  \item $e^{At_1}e^{At_2}=e^{A(t_1+t_2)}$ and $[e^{At}]^{-1}=e^{-At}$
+  \item $\Phi(t,t_0)=\Phi(t-t_0,0)$
+  \item $s(t,t_0,x_0,u)=\e{A(t-t_0)}x_0+\int_{t_0}^t\e{A(t-\tau)}Bu(\tau)d\tau$
+\end{enumerate}
+\end{Corollary}
+If $AB=BA\Rightarrow e^{(A+B)t}=e^{At}e^{Bt}$, $B e^{At}=e^{At} B$
+
+LTI: \textbf{$t_0$ doesn't matter, only $t-t_0$}\ldots WLOG, set $t_0=0$.
+
+\begin{Definition}
+$A\in\Reals^{n\times n}$ \textbf{semi-simple} $\Leftrightarrow$ its right eigenvecs. $\basis{v}{i}{n}\subseteq\Complex^n$ are lin. indep. in lin. space $(\Complex^n,\Complex)$ $\Leftrightarrow\exists$ nonsingular matrix $T\in\Complex^{n\times n}$ and diagonal matrix $\Lambda\in\Complex^{n\times n}$ s.t. $A=T^{-1}\Lambda T$.
+\end{Definition}
+\begin{Fact}
+If $A$ semi-simp. $T^{-1}=[v_1\,v_2\ldots v_n]$ with $v_i$ right eigenvec.'s:
+\begin{equation}\label{eq:eAt}
+\begin{array}{r}
+\e{At}=T^{-1}\e{\Lambda t}T=\inver{T}
+\def\arraycolsep{0pt}
+\begin{bmatrix}
+\e{\lambda_1t} & \cdots & 0 \vspace{-1mm}\\
+\vdots & \ddots & \vdots \vspace{-1mm}\\
+0 & \cdots & e^{\lambda_n t}
+\end{bmatrix}T
+\end{array}
+\end{equation}
+\end{Fact}
+\vspace{-2mm}
+\begin{equation*}
+\hspace{8mm}
+\begin{array}{ccl}
+\basis{e}{i}{n} & \underset{\mathclap{e^{At}}}{\longrightarrow} & \basis{e}{i}{n}\text{ basis of rep. of }\linA\text{ by }A \vspace{-2mm}\\
+\begin{matrix}
+\text{\hspace{-8mm}\footnotesize$T^{-1}$} & \uparrow & \text{}
+\end{matrix} & & \begin{matrix}
+\text{} & \downarrow & \text{\footnotesize$T$\hspace{-8mm}}
+\end{matrix}\vspace{-1.5mm} \\
+\basis{v}{i}{n} & \stackrel{\mathclap{e^{\Lambda t}}}{\longrightarrow} & \basis{v}{i}{n}\text{ eigenvecetor basis}
+\end{array}
+\end{equation*}
+\begin{Definition}
+$A\in\Reals^{n\times n}$ \textbf{simple} $\Leftrightarrow$ its eigvals are distinct, i.e. $\lambda_i\ne\lambda_j\forall i\ne j$.
+\end{Definition}
+\begin{Theorem}
+Simple matrix $\Rightarrow\nLeftarrow$ semi-simple matrix.
+\end{Theorem}
+
+\begin{Fact}
+$Av_i=\lambda_iv_i\Leftrightarrow(A-\lambda_i I)v_i=0\Leftrightarrow v_i\in\Null[A-\lambda_i I]$.
+\end{Fact}
+\begin{Definition}
+\textbf{Algebraic multiplicity of $\lambda$}: \# times $\lambda$ appears in $\Spec[A]$.
+
+\textbf{Geometric multiplicity of $\lambda$}: $\dim\Null[A-\lambda I]$.
+\end{Definition}
+When $A$ non semi-simple?$\Rightarrow$ complete basis with Jordan chain:
+
+\begin{Definition}
+\textbf{Jordan chain} length $\mu\in\Naturals$ at eigval $\lambda\in\Complex$: family $\{v^j\}_{j=1}^\mu\subseteq\Complex^n$ s.t.
+\begin{enumerate*}[label=\protect\circled{\arabic*}]
+  \item $\{v^j\}_{j=1}^\mu$ lin ind
+  \item $[A-\lambda I]v^1=0$; $[A-\lambda I]v^j=v^{j-1}$
+\end{enumerate*}
+\end{Definition}
+\begin{Definition}
+$\{v^j\}_{j=1}^\mu$ called \textbf{generalized eigenvectors} at $\lambda$.
+\end{Definition}
+
+\begin{Definition}
+\textbf{Jordan canonical form}.
+
+Let $A\in\Reals^{n\times n}$ have $k$ lin. indep. eigenvecs $v_1,\ldots,v_k$ w/ max J chains $\{v_i^j\}_{j=1}^{\mu_i}$ at $\lambda_i$, $i=1,\ldots,k$ w/ $\sum\mu_i=n$. Define:
+\begin{equation*}
+T^{-1}=[v_1^1\ldots v_1^{\mu_1}\ldots v_k^1\ldots v_k^{\mu_k}]\in\Complex^{n\times n}
+\end{equation*}
+$T$ invtbl; $J=TA\inver{T}$ is block-diag \textbf{Jordan canon form} of $A$:
+\begin{equation*}
+\def\arraycolsep{0pt}
+J=\begin{bmatrix}
+J_1 & \cdots & 0\vspace{-1mm} \\
+\vdots & \ddots & \vdots\vspace{-0mm} \\
+0 & \cdots & J_k
+\end{bmatrix}\in\Complex^{n\times n},\quad
+\def\arraycolsep{0pt}
+J_i=\begin{bmatrix}
+\lambda_i & 1 & \cdots & 0\vspace{-1mm} \\
+\vdots & \lambda_i & \ddots & \vdots\vspace{-1mm} \\
+\vdots & \emptyset & \ddots & 1 \\
+0 & \cdots & \cdots & \lambda_i
+\end{bmatrix}\overset{\in\Complex^{\mu_i\times\mu_i}}{
+\textbf{Jordan blocks}
+}
+\end{equation*}
+\end{Definition}
+Here's what makes computing $e^{At}$ easy now:
+\begin{Theorem}
+\hl{$\e{At}=T^{-1}\e{Jt}T$} where
+\vspace{-2.5mm}
+\begin{equation*}
+\def\arraycolsep{0pt}
+e^{Jt}=\begin{bmatrix}
+\e{J_1t} & \cdots & 0 \vspace{-1mm}\\
+\vdots & \ddots & \vdots \\
+0 & \cdots & \e{J_k t}
+\end{bmatrix}\text{, }
+\def\arraycolsep{1pt}
+\e{J_i t}=\begin{bmatrix}
+\e{\lambda_it} & t\e{\lambda_it} & \cdots & \frac{t^{\mu_i-1}\e{\lambda_it}}{(\mu_i-1)!} \\
+0 & \e{\lambda_it} & \cdots & \frac{t^{\mu_i-2}\e{\lambda_it}}{(\mu_i-2)!}\vspace{-1mm} \\
+\vdots & \vdots & \ddots & \vdots\vspace{-0.5mm} \\
+0 & 0 & \cdots & \e{\lambda_it}
+\end{bmatrix}
+\end{equation*}
+\vspace{-3mm}
+
+NB: if $k=n$ we're back to (\ref{eq:eAt}).
+\end{Theorem}
+\begin{Definition}
+\textbf{\hl{Convolution product}}: $(f\ast g)(t)=\int_{-\infty}^t f(t-\tau)g(\tau)d\tau$, with $\int_0^t$ only if $f,g\in [0,\infty)$.
+
+\textbf{Laplace transform}.
+Let $f(\cdot):\Reals_+\to\Reals^{n\times m}$. The Laplace transform of $f(\cdot)$: $F(s)=\mathcal L\{f(t)\}=\int_0^\infty f(t)\e{-st}dt\in\Complex^{n\times m}$.
+
+Let $A_1,A_2\in\Reals^{p\times n}$ and $f_1,f_2:\Reals_+\to\Reals^{n\times m}$, properties of $\mathcal L$:
+\begin{enumerate}[leftmargin=*]
+  \item $\mathcal L\{A_1f_1(t)+A_2f_2(t)\}=A_1\mathcal L\{f_1(t)\}+A_2\mathcal L\{f_2(t)\}$
+  \item $\mathcal L\{\dot f(t)\}=sF(s)-f(0)$; $\mathcal L\{\ddot f(t)\}=s^2F(s)-sf(0)-\dot f(0)$
+  \item $\mathcal L\{(f\ast g)(t)\}=F(s)G(s)$
+\end{enumerate}
+\end{Definition}
+\begin{Theorem}
+Let $A\in\Reals^{n\times n}$, then $\mathcal L\{e^{At}\}=(sI-A)^{-1}$. NB: $sI-A$ invertible $\forall s$ \textit{except the eigvals of $A$} (there, $\Det[sI-A]=0$ by definition)! 
+\end{Theorem}
+\vspace{-2mm}
+\begin{equation*}
+(sI-A)^{-1}=\Adj[sI-A]/\Det[sI-A]=M(s)/\chi_A(s)
+\end{equation*}
+Denom is char poly of $A$: $\chi_A(s)=s^n+\chi_1 s^{n-1}+\cdots+\chi_n\in\Reals[s]$
+
+\begin{Definition}
+\textbf{Adjugate} $\Adj[A]\in\Reals^{n\times n}$: $\Adj[A]_{ij}=(-1)^{i+j}\Det[A_{j\bullet,\bullet i}]$.
+\end{Definition}
+\begin{Theorem}
+\textbf{\hl{Cayley-Hamilton}}. Every square matrix $A\in\Reals^{n\times n}$ satisfies its charac. poly: $\chi_A(A)=A^n+\chi_1 A^{n-1}+\ldots+\chi_n I=0\in\Reals^{n\times n}$
+\end{Theorem}
+\begin{Corollary}
+$A\in\Reals^{n\times n}, \forall k\in\Naturals,A^k$ can be written as lin comb of $\{I,A,A^2,\ldots,A^{n-1}\}$ (\textbf{not a basis} since not nec lin indep!).
+\end{Corollary}
+\begin{Definition}
+$A\in\Reals^{n\times n}$ \textbf{nilpotent} $\Leftrightarrow A^N=0$ for some $N\in\Naturals$.
+\end{Definition}
+\begin{Fact}
+Equiv:
+\begin{enumerate*}[label=\protect\circled{\arabic*}]
+  \item $A\in\Reals^{n\times n}$ nilpotent
+  \item $A^n=0$
+  \item $\Spec[A]=\{0,\ldots,0\}$
+\end{enumerate*}
+\end{Fact}
+\vspace{-2mm}
+\begin{equation*}
+\dot x(t)=Ax(t)+Bu(t)\Rightarrow X(s)=(sI-A)^{-1}x_0+(sI-A)^{-1}BU(s)
+\end{equation*}
+This provides easy alt to 3 in {\color{red}\textbf{(***)}} to compute sol to ODE:
+\begin{equation*}
+Y(s)=C(sI-A)^{-1}x_0+C(sI-A)^{-1}BU(s)+DU(s)
+\end{equation*}
+
+\begin{Definition}
+\textbf{\hl{Transfer function} of the system}: $G(s)=C(sI-A)^{-1}B+D$
+\end{Definition}
+\begin{Definition}
+$\Rightarrow G(s)=C(M(s)/\chi_A(s))B+D=[CM(s)B+D\chi_A(s)]/\chi_A(s)$
+
+\textbf{Poles} of system are roots of denom poly of $G(s)$, $\chi_A(s)$. So all poles of sys are eigvals of $A$, but not all eigvals of $A$ are poles.
+\end{Definition}

@@ -1,0 +1,145 @@
+\nextchapter{Stability}
+
+\begin{Definition}
+Let $\dot x(t)=p(x(t),t)$; $\hat x\in\Reals$ \textbf{equilibrium}$\Leftrightarrow p(\hat x,t)=0\forall t\in\Reals$. 
+\end{Definition}
+\begin{Fact}
+If $\hat x\in\Reals$ equilib, then $s(t,t_0,\hat x)=\hat x\forall t,t_0\in\Reals$ called \textbf{equilib sol}.
+\end{Fact}
+Stability defs: any norm will do as $\DIM(\Reals^n)<\infty$, all norms equiv
+
+\begin{Definition}
+\textbf{Stable}$\Leftrightarrow\forall t_0\in\Reals,\forall\varepsilon>0\exists\delta>0$ s.t.
+\begin{equation*}
+\fnorm{x_0-\hat x}{}<\delta\Rightarrow\fnorm{s(t,t_0,x_0)-\hat x}{}<\varepsilon\quad\forall t\ge t_0
+\end{equation*} 
+\textbf{Unstable}$\Leftrightarrow$ not stable.
+
+\textbf{Uniformly stable}$\Leftrightarrow\forall\varepsilon>0\exists\delta>0$ s.t. $\forall t_0\in\Reals$
+\begin{equation*}
+\fnorm{x_0-\hat x}{}<\delta\Rightarrow\fnorm{s(t,t_0,x_0)-\hat x}{}<\varepsilon\quad\forall t\ge t_0
+\end{equation*} 
+
+\textbf{Locally asymptot stable}$\Leftrightarrow$ stable and $\forall t_0\in\Reals\exists M>0$ s.t.
+\begin{equation*}
+\fnorm{x_0-\hat x}{}\le M\Rightarrow\lim_{t\to\infty}\fnorm{s(t,t_0,x_0)-\hat x}{}=0
+\end{equation*}
+
+\textbf{Globally asymptotically stable}$\Leftrightarrow$ stable and $\forall (t_0,x_0)\in\Reals\times\Reals^n$
+\begin{equation*}
+\lim_{t\to\infty}\fnorm{s(t,t_0,x_0)-\hat x}{}=0
+\end{equation*}
+
+\textbf{Locally exp stable}$\Leftrightarrow\forall t_0\in\Reals\exists\alpha,m,M>0$ s.t. $\forall t\ge t_0$:
+\begin{equation*}
+\fnorm{x_0-\hat x}{}\le M\Rightarrow\fnorm{s(t,t_0,x_0)-\hat x}{}\le m\fnorm{x_0-\hat x}{}\e{-\alpha(t-t_0)}
+\end{equation*}
+
+\textbf{Glob exp stab}$\Leftrightarrow\forall t_0\in\Reals\exists\alpha,m>0$ s.t. $\forall x_0\in\Reals^n$ and all $t\ge t_0$
+\begin{equation*}
+\fnorm{s(t,t_0,x_0)-\hat x}{}\le m\fnorm{x_0-\hat x}{}\e{-\alpha(t-t_0)}
+\end{equation*}
+\end{Definition}
+
+\begin{Fact}
+\vspace{-4.5mm}
+\begin{table}[H]
+	\tiny
+	\centering
+	\begin{tabular}{c|c|c}
+	uniformly stable & $\Rightarrow$ & stable \\ \hline
+	local. asymp. stable & $\Rightarrow$ & stable \\ \hline
+	glob. asymp. stable & $\Rightarrow$ & local asymp. stable \\ \hline
+	loc. exp. stable & $\Rightarrow$ & loc. asymp. stable \\ \hline
+	glob. exp. stable & $\Rightarrow$ & glob. asymp. stable \\ \hline
+	glob. exp. stable & $\Rightarrow$ & loc. exp. stable \\  \hline
+	\end{tabular}
+\end{table}
+\end{Fact}
+\begin{Theorem}
+\textbf{Rel to continuity}. Equil $\hat x$ stable $\Leftrightarrow\forall t_0\in\Reals$ func $s(\cdot,t_0,\odot):(\Reals^n,\fnorm{\cdot}{})\to(C([t_0,\infty),\Reals^n),\fnorm{\cdot}{t_0,\infty})$ cont at $\hat x$ where:
+\begin{equation*}
+\textstyle
+\fnorm{s(\cdot,t_0,x_0)}{t_0,\infty}=\sup_{t\ge t_0}\fnorm{s(t,t_0,x_0)}{}
+\end{equation*}
+\end{Theorem}
+\begin{Theorem}
+\textbf{Rate of CV}. Let $\hat x$ equil of $\dot x=p(x(t),t)$. Assume $\exists k>0$ s.t. $\forall x,x'\in\Reals^n,\fnorm{p(x,t)-p(x',t)}{}\le k\fnorm{x-x'}{}$. Then
+\begin{equation*}
+\fnorm{x_0-\hat x}{}\e{-k(t-t_0)}\le\fnorm{s(t,t_0,x_0)-\hat x}{}\le\fnorm{x_0-\hat x}{}\e{k(t-t_0)}
+\end{equation*}
+\end{Theorem}
+\textit{Take-away: convergence can be at most exponential}. If $k=k(t)$, then replace lower bound $k$ above by $\inf(k)$ and upper bound by $\sup(k)$.
+
+\nextsubchapter{LTV systems}
+\vspace{-2.5mm}
+\begin{equation}\label{eq:LTVnoinput}
+\dot x(t)=A(t)x(t)
+\end{equation}
+$s(t,t_0,x_0)=\Phi(t,t_0)x_0$ the solution linear wrt $x_0\Rightarrow$ stability properties all depend on $\Phi(t,t_0)$. Equil. of (\ref{eq:LTVnoinput}) is $\hat x=0$.
+
+\begin{Theorem}
+\hl{{\color{blue}\textbf{($\bigstar\bigstar$)}}} Let $\fnorm{\Phi(t,0)}{}$ ind norm of $\Phi(t,0)\in\Reals^{n\times n}$ by $\fnorm{\cdot}{2}$. Equil $\hat x=0$ of (\ref{eq:LTVnoinput}) is
+\begin{itemize*}
+  \item stable$\Leftrightarrow\forall t_0\in\Reals\exists K\ge 0$ s.t. $\fnorm{\Phi(t,0)}{}\le K\forall t\ge 0$
+  \item loc asymp stable$\Leftrightarrow \lim_{t\to\infty}\fnorm{\Phi(t,0)}{}=0$.
+\end{itemize*}
+\end{Theorem}
+\begin{Fact}
+$\hat x=0$ of (\ref{eq:LTVnoinput}) is 
+\begin{itemize*}
+  \item Glob asymp stab $\Leftrightarrow$ loc asymp stab
+  \item Glob exp stab $\Leftrightarrow$ loc exp stab
+\end{itemize*}. $\Rightarrow$ \hl{glob/loc equiv for LTV ($\therefore$LTI too)}!
+\end{Fact}
+\nextsubchapter{LTI systems}
+\vspace{-2.5mm}
+\begin{equation}\label{eq:LTInoinput}
+\dot x(t)=Ax(t) \Rightarrow\text{solution: }s(t,t_0,x_0)=e^{A(t-t_0)}x_0
+\end{equation}
+
+\begin{Theorem}
+Eq $\hat x=0$ of (\ref{eq:LTInoinput}) uniformly stable $\Leftrightarrow$ stable.
+
+Eq $\widehat x=0$ is asymp stab $\Leftrightarrow$ exp stab $\Leftrightarrow$ \hl{$\forall\lambda\in\Spec[A],\text{Re}[\lambda]<0$}.
+
+Equil $\hat x=0$ of LTI stable $\Leftrightarrow$ 1 \& 2 hold:
+\begin{enumerate}[leftmargin=4mm]
+  \item \hl{$\forall\lambda\in\Spec[A],\text{Re}[\lambda]\le 0$}
+  \item \hl{Algeb and geom mult $\forall\lambda\in\Spec[A]$ s.t. $\text{Re}[\lambda]=0$ are equal}
+\end{enumerate}
+\end{Theorem}
+\textit{LTV} syst may still be unstab even if all eigvals of $A(t)$ are $<0\forall t$. To analyze LTV stability: use {\color{blue}\textbf{($\bigstar\bigstar$)}}.
+\begin{Fact}
+$\forall\varepsilon>0\exists m>0$ s.t. $\forall t\in\Reals_+$, $\fnorm{e^{At}}{}\le me^{(\mu+\varepsilon)t}$
+where $\fnorm{\cdot}{}$ induced norm on $\Reals^{n\times n}$ and $\mu=\max\{\text{Re}[\lambda] | \lambda\in\text{Spec}[A]\}$. $\therefore$ CV rate of resp of stable sys is determ by eigval w/ largest real part.
+\end{Fact}
+\textbf{Systems with inputs/outputs}. Consider (\ref{eq:LTV}) again.
+
+\begin{Definition}
+\textbf{BIBS}: $\fnorm{s(\cdot,t_0,x_0,u)}{t_0,\infty}$ bounded if $\fnorm{u}{t_0,\infty}$ bounded.
+
+
+\textbf{BIBO}: $\fnorm{\rho(\cdot,t_0,x_0,u)}{t_0,\infty}$ bounded if $\fnorm{u}{t_0,\infty}$ bounded.
+
+NB: $\fnorm{f(\cdot)}{t_0,\infty}=\sup_{t\ge t_0}\fnorm{f(t)}{}$
+\end{Definition}
+
+\textbf{Lyapunov equation}.
+\begin{Definition}
+$P\in\Reals^{n\times n}$ symm pos def if:
+\begin{itemize*}
+  \item $P=P^T$
+  \item $x^TPx>0$ $\forall x\ne 0$
+\end{itemize*}
+\end{Definition}
+\begin{Theorem}
+Equiv:
+\begin{itemize*}
+  \item Equil sol of $\dot x(t)=Ax(t)$ asymp stab
+  \item $\forall Q=Q^T>0$, $\exists !P=P^T>0$ satisf \textbf{Lyapunov eq} $A^TP+PA=-Q$.
+\end{itemize*}
+\end{Theorem}
+\begin{Definition}
+\textbf{Rayleigh quotient}: $\lambda_{\min}(P)\cdot\fnorm{x}{}^2\le x^TPx\le \lambda_{\max}(P)\cdot\fnorm{x}{}^2$ with $P=P^T$.
+\end{Definition}

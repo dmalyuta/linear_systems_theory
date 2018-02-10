@@ -1,0 +1,141 @@
+\nextchapter{Inner product spaces}
+Let $F=\Reals$ or $\Complex$.
+
+\begin{Definition}
+If $a(=a_1+ja_2)\in\Complex$, $\bar a=a_1-ja_2$ \textbf{complex conjugate} and $|a|=\sqrt{a_1^2+a_2^2}$ \textbf{abs. value}. If $a\in\Reals$, $\bar a=a$.
+\end{Definition}
+\begin{Definition}
+Let $(H,F)$ linear space. $\InnerProd{\cdot}{\cdot}:H\times H\to F$ \textbf{inner product}$\Leftrightarrow\forall x,y,z\in H,\alpha\in F$:
+\begin{enumerate}
+  \item $\InnerProd{x}{y+z}=\InnerProd{x}{y}+\InnerProd{x}{z}$
+  \begin{enumerate}
+    \item Extra: $\InnerProd{x+y}{z}=\InnerProd{x}{z}+\InnerProd{y}{z}$
+  \end{enumerate}
+  \item $\InnerProd{x}{\alpha y}=\alpha\InnerProd{x}{y}$ (Extra: $\InnerProd{\alpha x}{y}=\overline\alpha\InnerProd{x}{y}$).
+  \item $\InnerProd{x}{x}\in\Reals_+\forall x\ne 0$
+  \item $\InnerProd{x}{y}=\overline{\InnerProd{y}{x}}$
+\end{enumerate}
+Then $(H,F,\InnerProd{\cdot}{\cdot})$ called \textbf{inner product space} ($:=$IPS).
+\end{Definition}
+\begin{Theorem}
+If $(H,F,\InnerProd{\cdot}{\cdot})$ IPS, then $\fnorm{\cdot}{}=\sqrt{\InnerProd{x}{x}}:H\to F$ is \textbf{norm def. by inner product} on $(H,F)$. If $(H,F,\fnorm{\cdot}{})$ complete (Banach), then $(H,F,\InnerProd{\cdot}{\cdot})$ \textbf{Hilbert space}.
+\end{Theorem}
+\begin{Theorem}
+\textbf{\hl{Schwarz ineq}}. With $\fnorm{\cdot}{}=\sqrt{\InnerProd{\cdot}{\cdot}}$, we have: $|\InnerProd{x}{y}|\le\fnorm{x}{}\cdot\fnorm{y}{}$
+\end{Theorem}
+\begin{Definition}
+Consider lin. space $(F^n,F)$; define $\InnerProd{\cdot}{\cdot}:F^n\times F^n\to F$:
+\begin{equation*}
+\InnerProd{x}{y}=\sum_{i=1}^n\overline{x_i}y_i=\bar x^T\cdot y\quad\forall x,y\in F^n
+\end{equation*}
+The defined norm is $\fnorm{x}{}=\sqrt{\sum_{i=1}^n|x_i|^2}=\fnorm{x}{2}$.
+\end{Definition}
+\textbf{Space of square-integrable functions}.
+\begin{Definition}
+\textbf{$L^2([t_0,t_1],F^n)$ Hilbert space}: IPS of (Lebesgue) \textbf{\hl{square-integrable functions}} ($f(\cdot):[t_0,t_1]\to F^n$ s.t. $\int_{t_0}^{t_1}\fnorm{f(t)}{2}^2 dt<\infty$) equipped with \hl{$L^2$ inner product} $\InnerProd{f}{g}=\int_{t_0}^{t_1}\overline{f(t)}^Tg(t)dt$ (\mc{red}{induces the $\fnorm{f}{2}$ norm!}). Function equivalence $\Leftrightarrow\int_{t_0}^{t_1}\fnorm{f_1(t)-f_2(t)}{2}^2dt=0$.
+\end{Definition}
+\begin{Definition}
+$x,y\in H$ \textbf{orthogonal}$\Leftrightarrow\InnerProd{x}{y}=0$.
+\end{Definition}
+\begin{Theorem}
+\textbf{Pythagoras theorem}. Let $(H,F,\InnerProd{\cdot}{\cdot})$ be ISP. $x,y\in H$ orthogonal$\Rightarrow\fnorm{x+y}{}^2=\fnorm{x}{}^2+\fnorm{y}{}^2$ where $\fnorm{\cdot}{}=\sqrt{\InnerProd{\cdot}{\cdot}}$.
+\end{Theorem}
+\begin{Definition}
+\textbf{\hl{Orthogonal complement}} of subspace $M$ of IPS $(H,F,\InnerProd{\cdot}{\cdot})$:
+\begin{equation*}
+M^\perp=\{y\in H|\InnerProd{x}{y}=0\,\,\forall x\in M\}
+\end{equation*}
+\end{Definition}
+\begin{Fact}
+$M^\perp$ is a closed subspace of $H$ and $M\intersection M^\perp=\{0\}$.
+\end{Fact}
+\begin{Definition}
+Let $M,N$ subspaces of lin. space $(H,F)$. \textbf{\hl{sum}} of $M$ and $N$ is:
+\begin{equation*}
+M+N=\{w|\exists u\in M, v\in N\text{ s.t. }w=u+v\}
+\end{equation*}
+If $M\intersection N=\{0\}$, then $M+N$ \textbf{direct sum} of $M$ and $N$, $:=M\oplus N$.
+\end{Definition}
+NB: $M+N$ is a subspace of $H$.
+\begin{Fact}
+$V=M\oplus N\Leftrightarrow\forall x\in V\exists! u\in M,v\in N$ s.t. $x=u+v$.
+\end{Fact}
+\begin{Theorem}
+\hypertarget{min_theorem7_3}{\textbf{\mc{blue}{\hl{($\blacksquare$)}}}} Let $M$ closed subspace of Hilbert space $(H,F,\InnerProd{\cdot}{\cdot})$. Then:
+\begin{enumerate}
+  \item $H=M\oplus M^\perp:=M\perpoplus M^\perp$
+  \item $\forall x\in H\exists!y\in M$ s.t. $x-y\in M^\perp$, $y$ called \textbf{\hl{orthogonal projection}} of $x$ onto $M$.
+  \item $\forall x\in H$, orthog. proj. $y\in M$ is the unique elem. of $M$ achieving $\fnorm{x-y}{}=\inf\{\fnorm{x-u}{}|u\in M\}$.
+\end{enumerate}
+\end{Theorem}
+\textbf{\hl{Adjoint of a linear map}}.
+\begin{Definition}
+$(U,F,\InnerProd{\cdot}{\cdot}_U)$ and $(V,F,\InnerProd{\cdot}{\cdot}_V)$ Hilbert spaces. \textbf{\hl{Adjoint}} $\linA^*:V\to U$ of lin. map $\linA:U\to V$ defined by:
+\begin{equation*}
+\InnerProd{v}{\linA(u)}_V=\InnerProd{\linA^*(v)}{u}_U\quad\forall u\in U, v\in V
+\end{equation*}
+\end{Definition}
+\begin{Theorem}
+Let $\linA:U\to V$, $\linB:U\to V$ and $\linC:W\to U$ with $U$, $V$ and $W$ Hilbert spaces. Then: \begin{itemize*}
+  \item $\linA^*$ well defined, linear and continuous
+  \item $(\linA+\linB)^*=\linA^*+\linB^*$
+  \item $(a\linA)^*=\bar a\linA^*$
+  \item $(\linA\circ\linC)^*=\linC^*\circ\linA^*$
+  \item If $\linA$ invertible, $(\linA^{-1})^*=(\linA^*)^{-1}$
+  \item $\fnorm{\linA^*}{}=\fnorm{\linA}{}$ where $\fnorm{\cdot}{}=\sqrt{\InnerProd{\cdot}{\cdot}_U}$
+  \item $(\linA^*)^*=\linA$
+\end{itemize*}
+\end{Theorem}
+\begin{Example}
+Adjoint of linear map def. by mat. $A\in F^{m\times n}$ is $=\overline{A}^T(=[\overline{a_{ji}}])\in F^{n\times m}$ (called \textbf{Hermitian transpose}). If $F=\Reals$, then $\Adj[A]=A^T$ simply.
+\end{Example}
+\begin{Example}
+Let $\linA(u)=\int_{t_0}^{t_1}G(\tau)u(\tau)d\tau:L^2([t_0,t_1],F^m)\to F^n$. Adjoint ($\InnerProd{x}{\linA(u)}=\InnerProd{(\linA^*(x))(\cdot)}{u}$): $(\linA^*(x))(\cdot)=\overline{G(\cdot)}^Tx$
+\end{Example}
+\begin{Definition}
+$(H,F,\InnerProd{\cdot}{\cdot})$ Hilbert space, $\linA:H\to H$ linear and continuous. $\linA$ \textbf{\hl{self-adjoint}}$\Leftrightarrow\linA^*=\linA$, $\therefore\forall x,y\in H$, $\InnerProd{x}{\linA(y)}=\InnerProd{\linA(x)}{y}$. In finite dim.: $\overline{A}^T=A$ ($A$ \textbf{Hermitian}) if $F=\Complex$, or $A=A^T$ (\textbf{symmetric}) is $F=\Reals$.
+\end{Definition}
+\begin{Theorem}
+$(H,F,\InnerProd{\cdot}{\cdot})$ Hilbert space, $\linA:H\to H$ linear, continuous and self-adjoint. Then: \begin{enumerate*}
+  \item All eigenvals of $\linA$ real.
+  \item If $\lambda_i,\lambda_j$ eigenvals with eigenvecs $v_i,v_j\in H$ and $\lambda_i\ne\lambda_j$, then $v_i\perp v_j$.
+\end{enumerate*}
+\end{Theorem}
+\begin{Theorem}
+\textbf{\hl{Finite Rank Lemma (FRL)}}\hypertarget{FRL}{.} $F=\Reals$ or $\Complex$, $(H,F,\InnerProd{\cdot}{\cdot})$ and $(F^m,F,\InnerProd{\cdot}{\cdot}_{F^m})$ Hilbert (w/ latter finite-dim), let $\linA:H\to F^m$ and $\linA^*:F^m\to H$ its adjoint. Then:
+\begin{enumerate}[leftmargin=4mm]
+  \item $\linA\circ\linA^*:F^m\to F^m$, $\linA^*\circ\linA:H\to H$ lin., cont., self-adj.
+  \item $H=\Range(\linA^*)\perpoplus\Null(\linA)$, i.e. $\Range(\linA^*)\intersection\Null(\linA)=\{0\}$, $\Range(\linA^*)=(\Null(\linA))^\perp$.
+  \item $F^m=\Range(\linA)\perpoplus\Null(\linA^*)$.
+  \item \textit{\mc{blue}{Restriction}} of $\linA$: $\linA|_{\Range(\linA^*)}:\Range(\linA^*)\to \Range(\linA)$ is a \textit{\mc{blue}{bijection}} $\Rightarrow$ ``$\forall y\in\Range(\linA)\exists!\widetilde x\in\Range(\linA^*)$ s.t. $\linA\widetilde x=y$''
+  
+  \begin{Fact}
+  $\widetilde x$ unique in $\Range(\linA^*)$ \mc{red}{but \textbf{not} in} $H$ (if $\Null(\linA)\ne\{0\}$).
+  \end{Fact}
+  \item $\linA^*|_{\Range(\linA)}:\Range(\linA)\to \Range(\linA^*)$ is a \textit{\mc{blue}{bijection}}.
+  \item $\Null(\linA\circ\linA^*)=\Null(\linA^*)$, $\Range(\linA\circ\linA^*)=\Range(\linA)$.
+  \item $\Null(\linA^*\circ\linA)=\Null(\linA)$, $\Range(\linA^*\circ\linA)=\Range(\linA^*)$.
+\end{enumerate}
+\end{Theorem}
+\nextsubchapter{Matrix pseudo-inverse}
+\begin{Theorem}
+$A\in\Reals^{m\times n}$ s.t. $\linA(x)=Ax$. Let $b\in\Reals^m$. \mc{blue}{Assume $\Range(\linA)=\Reals^m$ ($\therefore A$ is \textbf{fat matrix}$\Rightarrow m\le n,\Null(\linA^*)=\{0\}$)}. Then \hl{$\widetilde x=A^T(AA^T)^{-1}b$} is:
+\begin{itemize}[leftmargin=4mm]
+  \item Unique elem. of $\Range(\linA^*)$ s.t. $A\widetilde x=b$
+  \item Orthog. proj. onto $\Range(\linA^*)$ of any $x\in\Reals^n$ s.t. $Ax=b$
+  \item Unique minimizer of $\fnorm{x}{}$ subject to $Ax=b$
+\end{itemize}
+\begin{Definition}
+$A^\dagger=A^T(AA^T)^{-1}$ \textbf{right pseudo-inverse} since $AA^\dagger=I$.
+\end{Definition}
+\end{Theorem}
+\begin{Theorem}
+$A\in\Reals^{m\times n}$ s.t. $\linA(x)=Ax$. Let $b\in\Reals^m$. \mc{blue}{Assume $\Null(\linA)=\{0\}$ ($\therefore A$ is \textbf{tall matrix}$\Rightarrow m\ge n,\Range(\linA^*)=\Reals^n$)}. Then \hl{$\widetilde x=(A^TA)^{-1}A^Tb$} is:
+\begin{itemize}[leftmargin=4mm]
+  \item Unique elem. of $\Reals^n$ s.t. $A\widetilde x$ orthog. proj. of $b$ onto $\Range(\linA)$
+  \item Unique minimizer of $\{\fnorm{Ax-b}{}|x\in\Reals^n\}$
+\end{itemize}
+\begin{Definition}
+$A^\ddagger=(A^TA)^{-1}A^T$ \textbf{left pseudo-inverse} since $A^\ddagger A=I$.
+\end{Definition}
+\end{Theorem}

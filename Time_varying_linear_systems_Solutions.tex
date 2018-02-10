@@ -1,0 +1,71 @@
+\nextchapter{Time varying linear systems: Solutions}
+\vspace{-2mm}
+\begin{equation}\label{eq:LTV}
+\dot x(t)=A(t)x(t)+B(t)u(t),\,\,\,
+y(t) = C(t)x(t)+D(t)u(t)
+\end{equation}
+$t\in\Reals,x(t)\in\Reals^n,u(t)\in\Reals^m,y(t)\in\Reals^p$.
+
+\begin{Definition}
+Let $(x_o(t),u_o(t))$ \textbf{trajectory}. \textbf{Perturbations} around it: $x(t)=x_o(t)+\delta x(t)$, $u(t)=u_o(t)+\delta u(t)$. \textbf{Linearization about traj}:
+\begin{equation*}
+d(\delta x(t))/dt=A(t)\delta x(t)+B(t)\delta u(t)
+\end{equation*}
+$A(t):=\partial f(x_o(t),u_o(t))/\partial x$; $B(t):=\partial f(x_o(t),u_o(t))/\partial u$.
+\end{Definition}
+Let $A(\cdot),B(\cdot),C(\cdot),D(\cdot)$ be pwc. Then:
+\begin{Fact}
+$\forall u(\cdot):\Reals\to\Reals^m$ pwc and $\forall(t_0,x_0)\in\Reals\times\Reals^n\exists ! x(\cdot):\Reals\to\Reals^n$ and $y(\cdot):\Reals\to\Reals^p$ for system (\ref{eq:LTV}). This unique solution is:
+\begin{equation*}
+\arraycolsep=1pt
+\begin{array}{rlll}
+x(t) &=& s(t,t_0,x_0,u)\textbf{ state transition map}&  \\
+y(t) &=& \rho(t,t_0,x_0,u)=C(t)s(t,t_o,x_o,u)+D(t)u(t) & \\
+\end{array}
+\end{equation*}
+\end{Fact}
+\begin{Theorem}
+$D_x=$ $\bigcup$ disc sets of $A,B,u$; $D_y=$ $\bigcup$ of disc sets of $C,D,u$.
+\begin{enumerate}
+  \item $\forall (t_0,x_0)\in\Reals\times\Reals^n,u(\cdot)\in PC(\Reals,\Reals^m)$
+  \begin{itemize}
+    \item $s(\cdot,t_0,x_0,u)\in C^1(t\in\Reals\setminus D_x,\Reals^n)$.
+    \item $\rho(\cdot,t_0,x_0,u)\in PC(\Reals,\Reals^p)$ w/ discont. set $D_y$.
+  \end{itemize}
+  \item $s(t,t_0,\cdot,u),\rho(t,t_0,\cdot,u)\in C(\Reals,\Reals^n\text{ and }\Reals^p\text{ respect.})$
+  \item Below true for $s$ \textbf{and} $\rho$:
+\begin{equation*}
+\begin{matrix}
+s(t,t_0,a_1x_{01}+a_2x_{02},a_1u_1+a_2u_2)= \\
+a_1s(t,t_0,x_{01},u_1)+a_2s(t,t_0,x_{02},u_2)
+\end{matrix}
+\end{equation*}
+  \item Below true for $s$ \textbf{and} $\rho$ (change \textbf{trans.}$\to$\textbf{resp.}):
+  \begin{equation*}
+  \underset{\substack{\text{\textbf{state trans.}}}}{s(t,t_0,x_0,u)}=\underset{\substack{\text{\textbf{0 inp. trans.}}}}{s(t,t_0,x_0,0)}+\underset{\substack{\text{\textbf{0 state trans.}}}}{s(t,t_0,0,u)}
+  \end{equation*}
+\end{enumerate}
+\end{Theorem}
+\begin{Definition}
+Rep. of $s(t,t_0,\cdot,0)$ wrt to a basis is called \textbf{state transition matrix (STM)} $\Phi(t,t_0)$ s.t. $s(t,t_0,x_0,0)=\Phi(t,t_0)x_0$. Properties:
+\begin{enumerate}
+  \item $\dot\Phi(t,t_0)=A(t)\Phi(t,t_0)$ with $\Phi(t_0,t_0)=I$.
+  \item $\forall t_0,t_1\in\Reals,\Phi(t,t_0)=\Phi(t,t_1)\Phi(t_1,t_0)$.
+  \item $\forall t_1,t_0,\Phi(t_1,t_0)$ invtbl and $[\Phi(t_1,t_0)]^{-1}=\Phi(t_0,t_1)$.
+\end{enumerate}
+\end{Definition}
+Showing 1 \& invoke exist\& uniq enough to prove a func is STM.
+
+\begin{Theorem}
+\begin{equation*}
+\underset{\text{\textbf{state trans.}}}{s(t,t_0,x_0,u)}=\underset{\text{\textbf{0 inp. trans.}}}{\Phi(t,t_0)x_0}+\underset{\text{\textbf{0 state trans.}}}{\int_{t_0}^t\Phi(t,\tau)B(\tau)u(\tau)d\tau}
+\end{equation*}
+\end{Theorem}
+\begin{Theorem}
+\begin{equation*}
+\underset{\substack{\textbf{out.}\\ \textbf{resp.}}}{\rho(\cdot)}=\underset{\textbf{0 inp. resp.}}{C(t)\Phi(t,t_0)x_0}+\underset{\textbf{zero state response}}{C(t)\int_{t_0}^t\Phi(t,\tau)B(\tau)u(\tau)d\tau+D(t)u(t)}
+\end{equation*}
+\end{Theorem}
+\begin{Proof}
+To \hl{prove $L(t)=R(t)$}, suff to show $L(t)$, $R(t)$ satisfy same linear DE for same IC, hence $L(t)=R(t)$ $\forall t$ by uniq of sol's. \QED
+\end{Proof}

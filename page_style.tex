@@ -1,0 +1,42 @@
+\hfuzz=400pt
+\vfuzz=400pt
+
+\setlist{nosep}
+
+\setlength{\columnseprule}{0.4pt}
+\setlength{\columnsep}{0pt}
+
+\makeatletter
+\g@addto@macro\normalsize{%
+  \setlength\abovedisplayskip{0pt}
+  \setlength\belowdisplayskip{0pt}
+  \setlength\abovedisplayshortskip{0pt}
+  \setlength\belowdisplayshortskip{0pt}
+}
+\makeatother
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\definecolor{mycolor}{rgb}{0.122, 0.435, 0.698}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\renewcommand{\baselinestretch}{1}
+
+% \usepackage{tikzpagenodes}
+% \usepackage{background}
+% \backgroundsetup%
+% {   contents={
+%         \begin{tikzpicture}[overlay]
+%             \draw[black!100] ($(current page text area.south west)+(-0.05,-0.05)$) rectangle ($(current page text area.north east)+(0.05,0.05)$);
+%         \end{tikzpicture}
+%     },
+%     scale=1,
+%     angle=0,
+%     opacity=1
+% }
